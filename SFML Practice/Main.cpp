@@ -1,6 +1,7 @@
 // Include important libraries here
 #include <sstream>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
 // Make code easier to type with "using namespace"
 using namespace sf;
@@ -185,6 +186,75 @@ int main()
 	updateBranches(4);
 	updateBranches(5);*/
 
+	// Prepare the player
+	Texture texturePlayer;
+	texturePlayer.loadFromFile("graphics/player.png");
+
+	Sprite spritePlayer(texturePlayer);
+	//spritePlayer.setTexture(texturePlayer);
+	spritePlayer.setPosition(Vector2f(580, 720));
+
+	// The player starts on the left
+	side playerSide = side::LEFT;
+
+	// Prepare the gravestone
+	Texture textureRIP;
+	textureRIP.loadFromFile("graphics/rip.png");
+
+	Sprite spriteRIP(textureRIP);
+	//spriteRIP.setTexture(textureRIP);
+	spriteRIP.setPosition(Vector2f(600, 860));
+
+	// Prepare the axe
+	Texture textureAxe;
+	textureAxe.loadFromFile("graphics/axe.png");
+
+	Sprite spriteAxe(textureAxe);
+	//spriteAxe.setTexture(textureAxe);
+	spriteAxe.setPosition(Vector2f(700, 830));
+
+	// Line the axe up with the tree
+	const float AXE_POSITION_LEFT = 700;
+	const float AXE_POSITION_RIGHT = 1075;
+
+	// Prepare the flying log
+	Texture textureLog;
+	textureLog.loadFromFile("graphics/log.png");
+
+	Sprite spriteLog(textureLog);
+	//spriteLog.setTexture(textureLog);
+	spriteLog.setPosition(Vector2f(810, 720));
+
+	// Some other useful log related variables
+	bool logActive = false;
+	float logSpeedX = 1000;
+	float logSpeedY = -1500;
+
+	// Control the player input
+	bool acceptInput = false;
+
+	// Prepare the sounds
+	// The player chopping sound
+	SoundBuffer chopBuffer;
+	chopBuffer.loadFromFile("sounds/chop.wav");
+
+	Sound chop(chopBuffer);
+	//chop.setBuffer(chopBuffer);
+	// 
+	// The player has met his end under a branch
+	SoundBuffer deathBuffer;
+	deathBuffer.loadFromFile("sounds/death.wav");
+
+	Sound death(deathBuffer);
+	//death.setBuffer(deathBuffer);
+
+	// Out of time
+	SoundBuffer ootBuffer;
+	ootBuffer.loadFromFile("sounds/out_of_time.wav");
+
+	Sound outOfTime(ootBuffer);
+	//outOfTime.setBuffer(ootBuffer);
+
 	while (window.isOpen())
 	{
 		/*
@@ -192,6 +262,20 @@ int main()
 		Handle the players input
 		****************************************
 		*/
+
+		//Event event = window.pollEvent();
+
+		while (const std::optional event = window.pollEvent())
+		{
+			if (event->is<Event::KeyReleased>() && !paused)
+			{
+				// Listen for key presses again
+				acceptInput = true;
+
+				// hide the axe
+				spriteAxe.setPosition(Vector2f(2000, spriteAxe.getPosition().y));
+			}
+		}
 
 		/* This code checks whether the Esc key is currently being pressed. If it is, the highlighted code uses the window
 		object to close itself. Now, the next time the while loop begins, it will see that the window object is closed and
@@ -209,6 +293,79 @@ int main()
 			// Reset the time and the score
 			score = 0;
 			timeRemaining = 6;
+
+			// Make all the branches disappear - starting in the second pos
+			for (int i = 1; i < NUM_BRANCHES; i++)
+			{
+				branchPositions[i] = side::NONE;
+			}
+
+			// Make sure the gravestone is hidden
+			spriteRIP.setPosition(Vector2f(675, 2000));
+
+			// Move the player into position
+			spritePlayer.setPosition(Vector2f(580, 720));
+
+			acceptInput = true;
+		}
+
+		// Wrap the player controls to make sure we are accepting input
+		if (acceptInput)
+		{
+			// More code here next...
+
+			// First handle pressing the right cursor key
+			if (Keyboard::isKeyPressed(Keyboard::Key::Right))
+			{
+				// Make sure the player is on the right
+				playerSide = side::RIGHT;
+
+				score++;
+
+				// Add to the amount of time remaining
+				timeRemaining += (2 / score) + .15;
+				spriteAxe.setPosition(Vector2f(AXE_POSITION_RIGHT, spriteAxe.getPosition().y));
+				spritePlayer.setPosition(Vector2f(1200, 720));
+
+				// Update the branches
+				updateBranches(score);
+
+				// Set the log flying to the left
+				spriteLog.setPosition(Vector2f(810, 720));
+				logSpeedX = -5000;
+				logActive = true;
+
+				acceptInput = false;
+
+				// Play a chop sound
+				chop.play();
+			}
+
+			// Handle the left cursor key
+			if (Keyboard::isKeyPressed(Keyboard::Key::Left))
+			{
+				// Make sure the player is on the left
+				playerSide = side::LEFT;
+
+				score++;
+
+				// Add to the amount of time remaining
+				timeRemaining += (2 / score) + .15;
+				spriteAxe.setPosition(Vector2f(AXE_POSITION_LEFT, spriteAxe.getPosition().y));
+				spritePlayer.setPosition(Vector2f(580, 720));
+
+				// update the branches
+				updateBranches(score);
+
+				// set the log flying
+				spriteLog.setPosition(Vector2f(810, 720));
+				logSpeedX = 5000;
+				logActive = true;
+				acceptInput = false;
+
+				// Play a chop sound
+				chop.play();
+			}
 		}
 
 		/*
@@ -249,6 +406,9 @@ int main()
 					textRect.size.y / 2.0f));
 
 				messageText.setPosition(Vector2f(1920 / 2.0f, 1080 / 2.0f));
+
+				// Play the out of time sound
+				outOfTime.play();
 			}
 
 			// Setup the bee
@@ -404,6 +564,49 @@ int main()
 					branches[i].setPosition(Vector2f(3000, height));
 				}
 			}
+
+			// Handle a flying log
+			if (logActive)
+			{
+				spriteLog.setPosition(Vector2f(spriteLog.getPosition().x + (logSpeedX * dt.asSeconds()),
+					spriteLog.getPosition().y + (logSpeedY * dt.asSeconds())));
+
+				// Has the log reached the right hand edge?
+				if (spriteLog.getPosition().x < -100 || spriteLog.getPosition().x > 2000)
+				{
+					// Set it up ready to be a whole new log next frame
+					logActive = false;
+					spriteLog.setPosition(Vector2f(810, 720));
+				}
+			}
+
+			// has the player been squished by a branch?
+			if (branchPositions[5] == playerSide)
+			{
+				// death
+				paused = true;
+				acceptInput = false;
+
+				// Draw the gravestone
+				spriteRIP.setPosition(Vector2f(525, 760));
+
+				// hide the player
+				spritePlayer.setPosition(Vector2f(2000, 660));
+
+				// Change the text of the message
+				messageText.setString("SQUISHED!!");
+
+				// Center it on the screen
+				FloatRect textRect = messageText.getLocalBounds();
+
+				messageText.setOrigin(Vector2f(textRect.position.x + textRect.size.x / 2.0f,
+					textRect.position.y + textRect.size.y / 2.0f));
+
+				messageText.setPosition(Vector2f(1920 / 2.0f, 1080 / 2.0f));
+
+				// Play the death sound
+				death.play();
+			}
 		} // End if(!paused)
 
 		/*
@@ -434,6 +637,18 @@ int main()
 
 		// Draw the tree
 		window.draw(spriteTree);
+
+		// Draw the player
+		window.draw(spritePlayer);
+
+		// Draw the axe
+		window.draw(spriteAxe);
+
+		// Draw the flying log
+		window.draw(spriteLog);
+
+		// Draw the gravestone
+		window.draw(spriteRIP);
 
 		// Draw the insect
 		window.draw(spriteBee);
