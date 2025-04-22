@@ -18,7 +18,7 @@
 *.ipch
 *.pdb
 *.bin
-*.txt
+*FileListAbsolute.txt
 
 # Compiled Object files
 *.slo

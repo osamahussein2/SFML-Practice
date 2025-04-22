@@ -1,0 +1,6 @@
+For now, it is much more important to talk about the why of references. There are two reasons to use references, and we have
+already mentioned them. Here they are, summarized again:
+
+1. Changing/reading the value of a variable/object in another function, which is otherwise out of scope.
+
+2. Passing/returning to/from a function without making a copy (and, therefore, more efficiently).
