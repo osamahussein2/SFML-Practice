@@ -151,9 +151,12 @@
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Bat.cpp" />
+    <ClCompile Include="CreateHorde.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Pong.cpp" />
+    <ClCompile Include="TextureHolder.cpp" />
     <ClCompile Include="Timber.cpp" />
+    <ClCompile Include="Zombie.cpp" />
     <ClCompile Include="ZombieArena.cpp" />
     <ClCompile Include="CreateBackground.cpp" />
   </ItemGroup>
@@ -161,6 +164,8 @@
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Bat.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="TextureHolder.h" />
+    <ClInclude Include="Zombie.h" />
     <ClInclude Include="ZombieShooter.h" />
   </ItemGroup>
   <ItemGroup>

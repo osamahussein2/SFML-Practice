@@ -4,3 +4,80 @@ already mentioned them. Here they are, summarized again:
 1. Changing/reading the value of a variable/object in another function, which is otherwise out of scope.
 
 2. Passing/returning to/from a function without making a copy (and, therefore, more efficiently).
+
+Pointers are variables that hold a memory address.
+
+There are two main operators associated with pointers. The first is the address of operator: &
+The second is the dereference operator: *
+
+A static function is a function of a class that can be called without an instance of the class.
+
+When we declare variables (including pointers), they are in an area of memory known as the stack. There is another area of
+memory which, although allocated and controlled by the operating system, can be allocated at runtime. This other area of
+memory is called the free store, or sometimes, the heap.
+
+Memory on the heap does not have scope to a specific function. Returning from a function does not delete the memory on the
+heap.
+
+Any allocated memory is returned when the program ends. It is, however, important to realize that this memory will never be
+freed (within the execution of our game) unless we free it. If we continue to take memory from the free store without giving
+it back, eventually it will run out and the game will crash.
+
+If a pointer points to an address that is invalid, it is called a wild or dangling pointer. If you attempt to dereference a
+dangling pointer and if you are lucky, the game will crash, and you will get a memory access violation error. If you are
+unlucky, you will create a bug that will be incredibly difficult to find. Furthermore, if we use memory on the free store
+that will persist beyond the life of a function, we must make sure to keep a pointer to it or we will have leaked memory.
+
+The Standard Template Library (STL) is a collection of data containers and ways to manipulate the data we put in those
+containers. If we want to be more specific, it is a way to store and manipulate different types of C++ variables and classes.
+
+The types of container that are available through the STL include the following:
+
+1. Vector: This is like an array with boosters. It handles dynamic resizing, sorting, and searching. This is probably the most
+useful container.
+
+2. List: A container that allows for the ordering of the data.
+
+3. Map: An associative container that allows the user to store data as key/value pairs. This is where one piece of data is the
+"key" to finding the other piece. A map can also grow and shrink, as well as be searched.
+
+4. Set: A container that guarantees that every element is unique.
+
+What is a map?
+A map is a container that is dynamically resizable. We can add and remove elements with ease. What makes the map class
+special compared to the other containers in the STL is the way that we access the data within it. The data in a map instance
+is stored in pairs.
+
+The != accounts.end value is used to determine when a key does or doesn't exist. If the searched for key is not present in
+the map, then accounts.end will be the result of the if statement.
+
+The following code shows how we could loop through each key-value pair of the account's map and add one to each of the
+account numbers:
+
+for (map<string,int>::iterator it = accounts.begin(); it != accounts.end(); ++ it)
+{
+	it->second += 1;
+}
+
+map<string,int>::iterator is a type. We are declaring an iterator that's suitable for a map with key-value pairs of string and
+int. The iterator's name is it. We assign the value that's returned by accounts.begin() to it. The iterator, it, now holds the
+first key-value pair from the accounts map.
+
+it != accounts.end() means the loop will continue until the end of the map is reached, and ++it simply steps to the next
+key-value pair in the map, each pass through the loop.
+
+it->second accesses the value of the key-value pair and += 1 adds one to the value. Note that we can access the key (which is
+the first part of the key-value pair) with it->first.
+
+C++ supplies a neat way to reduce verbosity with the auto keyword. Using the auto keyword like so:
+
+for (auto it = accounts.begin(); it != accounts.end(); ++ it)
+{
+	it->second += 1;
+}
+
+The auto keyword instructs the compiler to automatically deduce the type for us.
+
+Coding a class in such a way that there can only ever be one instance of it. This type of class is called a singleton.
+
+A singleton is a design pattern. A design pattern is a way to structure our code that is proven to work.
