@@ -81,3 +81,21 @@ The auto keyword instructs the compiler to automatically deduce the type for us.
 Coding a class in such a way that there can only ever be one instance of it. This type of class is called a singleton.
 
 A singleton is a design pattern. A design pattern is a way to structure our code that is proven to work.
+
+Q) Are there any better ways of doing collision detection?
+
+A) Yes. There are lots more ways to do collision detection, including but not limited to the following.
+
+• You can divide objects up into multiple rectangles that fit the shape of the sprite better. It is perfectly manageable for
+C++ to check on thousands of rectangles each frame. This is especially the case when you use techniques such as neighbor
+checking to reduce the number of tests that are necessary each frame.
+
+• For circular objects, you can use the radius overlap method.
+
+• For irregular polygons, you can use the passing number algorithm.
+
+You can review all of these techniques, if you wish, by taking a look at the following links:
+
+• Neighbor checking: http://gamecodeschool.com/essentials/collision-detection-neighbor-checking/
+• Radius overlap method: http://gamecodeschool.com/essentials/collision-detection-radius-overlap/
+• Crossing number algorithm: http://gamecodeschool.com/essentials/collision-detection-crossing-number/
