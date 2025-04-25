@@ -99,3 +99,11 @@ You can review all of these techniques, if you wish, by taking a look at the fol
 • Neighbor checking: http://gamecodeschool.com/essentials/collision-detection-neighbor-checking/
 • Radius overlap method: http://gamecodeschool.com/essentials/collision-detection-radius-overlap/
 • Crossing number algorithm: http://gamecodeschool.com/essentials/collision-detection-crossing-number/
+
+Shaders are programs written in another language that run directly on the graphics card.
+
+Shaders are programs written in GLSL (Graphics Library Shading Language).
+
+For this project, however, we will learn some more C++ and implement a PlayableCharacter class with all the common
+functionality of Thomas and Bob. Then, the Thomas and Bob classes will inherit this common functionality as well as 
+implementing their own unique functions and abilities. This technique, perhaps unsurprisingly, is called inheritance.
