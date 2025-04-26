@@ -127,3 +127,10 @@ function the same way as a pure virtual function but leave the = 0 off to the en
 
 Remember that protected variables can be used as if they were public in classes that inherit from the class with the 
 protected variables.
+
+Spatialization is the act of making something relative to the space it is a part of, or within.
+
+Being aware of where the sound is coming from in our game world. This source of the sound is called an emitter.
+
+Attenuation is the rate at which a wave deteriorates. You could simplify that statement and make it specific to sound and say
+that attenuation is how quickly the sound reduces in volume.
