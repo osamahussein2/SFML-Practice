@@ -107,3 +107,23 @@ Shaders are programs written in GLSL (Graphics Library Shading Language).
 For this project, however, we will learn some more C++ and implement a PlayableCharacter class with all the common
 functionality of Thomas and Bob. Then, the Thomas and Bob classes will inherit this common functionality as well as 
 implementing their own unique functions and abilities. This technique, perhaps unsurprisingly, is called inheritance.
+
+Inheritance means we can harness all the features and benefits of other people's classes, including the encapsulation, while
+further refining or extending the code specifically to our situation.
+
+The class that is extended from is the super-class, and the class that inherits from the super-class is the sub-class. We 
+can also say parent and child class.
+
+Polymorphism allows us to write code that is less dependent on the types we are trying to manipulate. This can make our code
+clearer and more efficient. Polymorphism means many forms.
+
+An abstract class is a class that cannot be instantiated and therefore cannot be made into an object.
+
+A concrete class is any class that isn't abstract. In other words, all the classes we have written so far have been concrete
+classes and can be instantiated into usable objects.
+
+By the way, virtual as opposed to pure virtual is a function that can be optionally overridden. You declare a virtual 
+function the same way as a pure virtual function but leave the = 0 off to the end.
+
+Remember that protected variables can be used as if they were public in classes that inherit from the class with the 
+protected variables.

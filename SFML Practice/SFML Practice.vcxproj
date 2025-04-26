@@ -151,15 +151,18 @@
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Bat.cpp" />
+    <ClCompile Include="Bob.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="CreateHorde.cpp" />
     <ClCompile Include="Draw.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Pickup.cpp" />
+    <ClCompile Include="PlayableCharacter.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Pong.cpp" />
     <ClCompile Include="TextureHolder.cpp" />
+    <ClCompile Include="Thomas.cpp" />
     <ClCompile Include="ThomasWasLate.cpp" />
     <ClCompile Include="Timber.cpp" />
     <ClCompile Include="Update.cpp" />
@@ -170,11 +173,14 @@
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Bat.h" />
+    <ClInclude Include="Bob.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Pickup.h" />
+    <ClInclude Include="PlayableCharacter.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="TextureHolder.h" />
+    <ClInclude Include="Thomas.h" />
     <ClInclude Include="Zombie.h" />
     <ClInclude Include="ZombieShooter.h" />
   </ItemGroup>
