@@ -71,10 +71,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)Thomas Was Late Game\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)Space Invaders++ Game\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)Thomas Was Late Game\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)Space Invaders++ Game\$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -151,14 +151,23 @@
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Bat.cpp" />
+    <ClCompile Include="BitmapStore.cpp" />
     <ClCompile Include="Bob.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="CreateHorde.cpp" />
     <ClCompile Include="DetectCollisions.cpp" />
     <ClCompile Include="Draw.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="GameEngine.cpp" />
+    <ClCompile Include="GameInputHandler.cpp" />
+    <ClCompile Include="GameOverInputHandler.cpp" />
+    <ClCompile Include="GameOverUIPanel.cpp" />
+    <ClCompile Include="GameScreen.cpp" />
+    <ClCompile Include="GameUIPanel.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="LoadLevel.cpp" />
     <ClCompile Include="Particle.cpp" />
@@ -168,11 +177,20 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Pong.cpp" />
     <ClCompile Include="PopulateEmitters.cpp" />
+    <ClCompile Include="Screen.cpp" />
+    <ClCompile Include="ScreenManager.cpp" />
+    <ClCompile Include="ScreenManagerRemoteControl.cpp" />
+    <ClCompile Include="SelectInputHandler.cpp" />
+    <ClCompile Include="SelectScreen.cpp" />
+    <ClCompile Include="SelectUIPanel.cpp" />
+    <ClCompile Include="SoundEngine.cpp" />
     <ClCompile Include="SoundManager.cpp" />
+    <ClCompile Include="SpaceInvaders++.cpp" />
     <ClCompile Include="TextureHolder.cpp" />
     <ClCompile Include="Thomas.cpp" />
     <ClCompile Include="ThomasWasLate.cpp" />
     <ClCompile Include="Timber.cpp" />
+    <ClCompile Include="UIPanel.cpp" />
     <ClCompile Include="Update.cpp" />
     <ClCompile Include="Zombie.cpp" />
     <ClCompile Include="ZombieArena.cpp" />
@@ -181,19 +199,38 @@
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Bat.h" />
+    <ClInclude Include="BitmapStore.h" />
     <ClInclude Include="Bob.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="DevelopState.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="GameEngine.h" />
+    <ClInclude Include="GameInputHandler.h" />
+    <ClInclude Include="GameOverInputHandler.h" />
+    <ClInclude Include="GameOverUIPanel.h" />
+    <ClInclude Include="GameScreen.h" />
+    <ClInclude Include="GameUIPanel.h" />
     <ClInclude Include="HUD.h" />
+    <ClInclude Include="InputHandler.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="ParticleSystem.h" />
     <ClInclude Include="Pickup.h" />
     <ClInclude Include="PlayableCharacter.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Screen.h" />
+    <ClInclude Include="ScreenManager.h" />
+    <ClInclude Include="ScreenManagerRemoteControl.h" />
+    <ClInclude Include="SelectInputHandler.h" />
+    <ClInclude Include="SelectScreen.h" />
+    <ClInclude Include="SelectUIPanel.h" />
+    <ClInclude Include="SoundEngine.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="TextureHolder.h" />
     <ClInclude Include="Thomas.h" />
+    <ClInclude Include="UIPanel.h" />
+    <ClInclude Include="WorldState.h" />
     <ClInclude Include="Zombie.h" />
     <ClInclude Include="ZombieShooter.h" />
   </ItemGroup>

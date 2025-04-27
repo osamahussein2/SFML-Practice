@@ -156,3 +156,41 @@ be quite complex, such as performing more advanced mathematics, for example, to 
 OpenGL screen coordinates that the GPU can use. Fortunately, it is this complexity that SFML handles for us behind the scenes.
 SFML also allows us to handle OpenGL directly.
 
+A design pattern is a reusable solution to a coding problem. In fact, most games (including this one) will use multiple
+design patterns. The key point about design patterns is this: they are already proven to provide a good solution to a common
+problem. We are not going to invent any design patterns – we are just going to use some that already exist to solve the
+problem of our ever-expanding code.
+
+A screen is a logical division of the parts of the game.
+
+When we use composition over inheritance to create a group of classes that represent behavior/algorithms, this is known as
+the Strategy pattern.
+
+Smart pointers are classes that we can use to get the same functionality as a regular pointer but with an extra feature – the
+feature being that they take care of their own deletion.
+
+The way that a shared pointer can safely delete the memory it points to is by keeping a count of the number of different
+references there are to an area of memory. If you pass a pointer to a function, the count is increased by one. If you pack a
+pointer into a vector, the count is increased by one. If the function returns, the count is decreased by one. If the vector
+goes out of scope or has the clear function called on it, the smart pointer will reduce the reference count by one. When the
+reference count is zero, nothing points to the area of memory anymore and the smart pointer class calls delete. All the smart
+pointer classes are implemented using regular pointers behind the scenes. We just get the benefit of not having to concern
+ourselves about where or when to call delete.
+
+myPointer = make_shared<MyClass>();
+
+The call to make_shared internally calls new to allocate the memory.
+
+By using a shared smart pointer, there is some performance and memory overhead. By overhead, I mean that our code runs slower
+and uses more memory. After all, the smart pointer needs a variable to keep track of the reference count, and it must check
+the value of the reference count every time a reference goes out of scope.
+
+When we know that we only want a single reference to an area of memory, we can use a unique smart pointer. Unique pointers
+lose much of the overhead that I mentioned shared pointers have. In addition, if you try and make a copy of a unique pointer,
+the compiler will warn us, and the code will either not compile or it will crash, giving us a clear error. This is a very
+useful feature that can prevent us from accidentally copying a pointer that was not meant to be copied.
+
+The exact same rules apply when passing a unique pointer to a function; use the move function to pass responsibility on.
+
+We have a unique pointer of the ScreenManager Type. This implies that this pointer will not be passed to any other classes
+but, if it is, then ownership will also be passed.

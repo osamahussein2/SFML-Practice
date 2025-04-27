@@ -13,6 +13,42 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Engine">
+      <UniqueIdentifier>{cfc329e7-7cdf-45f5-8c4a-22bfc43b410a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\FileIO">
+      <UniqueIdentifier>{1e9217bf-5bcd-4fd3-bf98-7dbb335b2348}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects">
+      <UniqueIdentifier>{3e05f3a9-ed1a-4725-9554-d345b8642ec3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Screens">
+      <UniqueIdentifier>{179dc0a6-294b-470c-a588-48ae8a787019}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Screens\Select">
+      <UniqueIdentifier>{369c25a9-49df-4c2f-93e3-ab8cb615900f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Screens\Game">
+      <UniqueIdentifier>{2c6381e5-2fff-4647-9101-8cac50a25eed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{6cc96375-c760-47d8-a5e9-310bc44a6f69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\FileIO">
+      <UniqueIdentifier>{e8e64b0d-26f8-459d-baef-100b475e9269}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects">
+      <UniqueIdentifier>{59aea2b4-c648-4f53-9a6d-8379140a9663}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Screens">
+      <UniqueIdentifier>{4f3bea9c-2a57-427b-979a-7c15e4eefae1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Screens\Game">
+      <UniqueIdentifier>{b1fca0b3-0f77-47e0-99d4-02bebdf53ff3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Screens\Select">
+      <UniqueIdentifier>{9c95852a-72d7-488b-9dba-d8b86b430351}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Timber.cpp">
@@ -99,6 +135,60 @@
     <ClCompile Include="ParticleSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SpaceInvaders++.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngine.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundEngine.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenManager.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="BitmapStore.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenManagerRemoteControl.cpp">
+      <Filter>Source Files\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="UIPanel.cpp">
+      <Filter>Source Files\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="InputHandler.cpp">
+      <Filter>Source Files\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen.cpp">
+      <Filter>Source Files\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectScreen.cpp">
+      <Filter>Source Files\Screens\Select</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectInputHandler.cpp">
+      <Filter>Source Files\Screens\Select</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectUIPanel.cpp">
+      <Filter>Source Files\Screens\Select</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScreen.cpp">
+      <Filter>Source Files\Screens\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameInputHandler.cpp">
+      <Filter>Source Files\Screens\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameUIPanel.cpp">
+      <Filter>Source Files\Screens\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverInputHandler.cpp">
+      <Filter>Source Files\Screens\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverUIPanel.cpp">
+      <Filter>Source Files\Screens\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bat.h">
@@ -151,6 +241,63 @@
     </ClInclude>
     <ClInclude Include="ParticleSystem.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DevelopState.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngine.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundEngine.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenManager.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="BitmapStore.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenManagerRemoteControl.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="UIPanel.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="InputHandler.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="Screen.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldState.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectScreen.h">
+      <Filter>Header Files\Screens\Select</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectInputHandler.h">
+      <Filter>Header Files\Screens\Select</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectUIPanel.h">
+      <Filter>Header Files\Screens\Select</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScreen.h">
+      <Filter>Header Files\Screens\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameInputHandler.h">
+      <Filter>Header Files\Screens\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameUIPanel.h">
+      <Filter>Header Files\Screens\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverInputHandler.h">
+      <Filter>Header Files\Screens\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverUIPanel.h">
+      <Filter>Header Files\Screens\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
