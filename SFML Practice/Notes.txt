@@ -134,3 +134,25 @@ Being aware of where the sound is coming from in our game world. This source of 
 
 Attenuation is the rate at which a wave deteriorates. You could simplify that statement and make it specific to sound and say
 that attenuation is how quickly the sound reduces in volume.
+
+When you have a rate of change (speed) in more than one direction, the combined values also define a direction. This is
+called velocity.
+
+Through OpenGL, we have access to what is called a programmable pipeline. We can send our graphics off to be drawn, each
+frame, with the RenderWindow instance's draw function.
+
+This extra code that runs on the GPU is called a shader program. We can write code to manipulate the geometry (position) of
+our graphics in a vertex shader. We can also write code that manipulates the appearance of every pixel individually in code.
+This is known as a fragment shader.
+
+In OpenGL, everything is a point, a line, or a triangle. In addition, we can attach colors and textures to this basic
+geometry, and we can also combine these elements to make the complex graphics that we see in today's modern games. These are
+collectively known as primitives. We have access to OpenGL primitives through the SFML primitives and VertexArray, as well as
+the Sprite and Shape classes.
+
+In addition to primitives, OpenGL uses matrices. Matrices are a method and structure for performing arithmetic. This
+arithmetic can range from extremely simple high school-level calculations such as moving (translating) a coordinate or it can
+be quite complex, such as performing more advanced mathematics, for example, to convert our game world coordinates into
+OpenGL screen coordinates that the GPU can use. Fortunately, it is this complexity that SFML handles for us behind the scenes.
+SFML also allows us to handle OpenGL directly.
+

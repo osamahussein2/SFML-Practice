@@ -5,13 +5,19 @@ void Engine::draw()
 	// Rub out the last frame
 	m_Window.clear(Color::White);
 
+	// Update the shader parameters
+	m_RippleShader.setUniform("uTime", m_GameTimeTotal.asSeconds());
+
 	if (!m_SplitScreen)
 	{
 		// Switch to background view
 		m_Window.setView(m_BGMainView);
 
 		// Draw the background
-		m_Window.draw(m_BackgroundSprite);
+		//m_Window.draw(m_BackgroundSprite);
+
+		// Draw the background, complete with shader effect
+		m_Window.draw(m_BackgroundSprite, &m_RippleShader);
 
 		// Switch to m_MainView
 		m_Window.setView(m_MainView);
@@ -24,6 +30,12 @@ void Engine::draw()
 
 		// Draw bob
 		m_Window.draw(m_Bob.getSprite());
+
+		// Draw the particle system
+		if (m_PS.running())
+		{
+			m_Window.draw(m_PS);
+		}
 	}
 
 	else
@@ -34,7 +46,10 @@ void Engine::draw()
 		m_Window.setView(m_BGLeftView);
 
 		// Draw the background
-		m_Window.draw(m_BackgroundSprite);
+		//m_Window.draw(m_BackgroundSprite);
+
+		// Draw the background, complete with shader effect
+		m_Window.draw(m_BackgroundSprite, &m_RippleShader);
 
 		// Switch to m_LeftView
 		m_Window.setView(m_LeftView);
@@ -48,12 +63,21 @@ void Engine::draw()
 		// Draw thomas
 		m_Window.draw(m_Thomas.getSprite());
 
+		// Draw the particle system
+		if (m_PS.running())
+		{
+			m_Window.draw(m_PS);
+		}
+
 		// Now draw Bob's side of the screen
 		// Switch to background view
 		m_Window.setView(m_BGRightView);
 
 		// Draw the background
-		m_Window.draw(m_BackgroundSprite);
+		//m_Window.draw(m_BackgroundSprite);
+
+		// Draw the background, complete with shader effect
+		m_Window.draw(m_BackgroundSprite, &m_RippleShader);
 
 		// Switch to m_RightView
 		m_Window.setView(m_RightView);
@@ -67,6 +91,11 @@ void Engine::draw()
 		// Draw bob
 		m_Window.draw(m_Bob.getSprite());
 
+		// Draw the particle system
+		if (m_PS.running())
+		{
+			m_Window.draw(m_PS);
+		}
 	}
 
 	// Draw the HUD
