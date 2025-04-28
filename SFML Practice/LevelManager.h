@@ -1,35 +1,57 @@
 #pragma once
+#include "GameObject.h"
+#include <vector>
+#include <string>
+#include "GameObjectSharer.h"
 
-#include <SFML/Graphics.hpp>
-
-using namespace sf;
 using namespace std;
 
-class LevelManager
+class LevelManager : public GameObjectSharer 
 {
 private:
-	Vector2i m_LevelSize;
-	Vector2f m_StartPosition;
+	vector<GameObject> m_GameObjects;
+	const std::string WORLD_FOLDER = "world";
+	const std::string SLASH = "/";
 
-	float m_TimeModifier = 1;
-	float m_BaseTimeLimit = 0;
+	void runStartPhase();
+	void activateAllGameObjects();
 
-	int m_CurrentLevel = 0;
-
-	const int NUM_LEVELS = 4;
-
-	// public declarations go here
 public:
-	const int TILE_SIZE = 50;
-	const int VERTS_IN_QUAD = 6;
+	vector<GameObject>& getGameObjects();
+	void loadGameObjectsForPlayMode(string screenToLoad);
 
-	float getTimeLimit();
+	/****************************************************
+	*****************************************************
+	From GameObjectSharer interface
+	*****************************************************
+	*****************************************************/
 
-	Vector2f getStartPosition();
+	vector<GameObject>& GameObjectSharer::getGameObjectsWithGOS()
+	{
+		return m_GameObjects;
+	}
 
-	int** nextLevel(VertexArray& rVaLevel);
+	GameObject& GameObjectSharer::findFirstObjectWithTag(string tag)
+	{
+		auto it = m_GameObjects.begin();
+		auto end = m_GameObjects.end();
 
-	Vector2i getLevelSize();
+		/* This allows any class with a GameObjectSharer instance to track down a specific game object using its tag. The
+		code loops through all the GameObject instances in the vector and returns the first match */
+		for (it; it != end; ++it)
+		{
+			if ((*it).getTag() == tag)
+			{
+				return (*it);
+			}
+		}
 
-	int getCurrentLevel();
+		/* If no match is found, a null pointer will be returned and crash the game. We use an #ifdef statement to output
+		some text to the console to tell us what caused the crash so that we won't be scratching our heads for hours should
+		we accidentally search for a tag that doesn't exist */
+#ifdef debuggingErrors
+		cout << "LevelManager.h findFirstGameObjectWithTag() " << "- TAG NOT FOUND ERROR!" << endl;
+#endif
+		return m_GameObjects[0];
+	}
 };
