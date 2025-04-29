@@ -24,6 +24,7 @@ public:
 	From Component interface
 	*****************************************************
 	*****************************************************/
+
 	string Component::getType()
 	{
 		return m_Type;

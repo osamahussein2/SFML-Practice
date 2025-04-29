@@ -10,6 +10,7 @@ class LevelManager : public GameObjectSharer
 {
 private:
 	vector<GameObject> m_GameObjects;
+
 	const std::string WORLD_FOLDER = "world";
 	const std::string SLASH = "/";
 

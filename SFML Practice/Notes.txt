@@ -194,3 +194,22 @@ The exact same rules apply when passing a unique pointer to a function; use the 
 
 We have a unique pointer of the ScreenManager Type. This implies that this pointer will not be passed to any other classes
 but, if it is, then ownership will also be passed.
+
+The absolute best source of information on how to structure your C++ game code is http://gameprogrammingpatterns.com/.
+
+When you come across C++ topics you don't understand (or have never even heard of), the most concise and organized C++
+tutorials can be found at http://www.cplusplus.com/doc/tutorial/.
+
+In addition to this, there are four more SFML books you might like to look into. They are all good books but vary greatly in
+who they are suitable for. Here is a list of the books in ascending order from most beginner focused to most technical:
+
+• SFML Essentials by Milcho G. Milchev: https://www.packtpub.com/gamedevelopment/sfml-essentials
+• SFML Blueprints by Maxime Barbier: https://www.packtpub.com/gamedevelopment/sfml-blueprints
+• SFML Game Development By Example by Raimondas Pupius: https://www.packtpub.com/game-development/sfml-game-development-example
+• SFML Game Development by Jan Haller, Henrik Vogelius Hansson, and Artur Moreira: https://www.packtpub.com/game-development/sfml-gamedevelopment
+
+You also might like to consider adding life-like 2D physics to your game. SFML works perfectly with the Box2d physics engine.
+This URL is for the official website: http://box2d.org/. The following URL takes you to probably the best guide to using it
+with C++: http://www.iforce2d.net/.
+
+Lastly, I am going to shamelessly plug my own website for beginner game programmers: http://gamecodeschool.com.

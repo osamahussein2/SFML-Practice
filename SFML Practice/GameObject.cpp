@@ -60,6 +60,12 @@ void GameObject::addComponent(shared_ptr<Component> component)
 	m_Components.push_back(component);
 	component->enableComponent();
 
+	if (component->getType() == "state")
+	{
+		m_HasStateComponent = true;
+		m_StateComponentLocation = m_Components.size() - 1;
+	}
+
 	if (component->getType() == "update")
 	{
 		m_HasUpdateComponent = true;
@@ -165,7 +171,7 @@ shared_ptr<Component> GameObject::getComponentByTypeAndSpecificType(string type,
 cout << "GameObject.cpp::getComponentByTypeAndSpecificType-" << "COMPONENT NOT FOUND ERROR!" << endl;
 #endif
 
-return m_Components[0];
+	return m_Components[0];
 }
 
 FloatRect& GameObject::getEncompassingRectCollider()

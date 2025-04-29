@@ -1,43 +1,37 @@
 #include "GameObjectBlueprint.h"
 
-float GameObjectBlueprint::getWidth()
-{
+float GameObjectBlueprint::getWidth() {
 	return m_Width;
 }
 
-void GameObjectBlueprint::setWidth(float width)
-{
+void GameObjectBlueprint::setWidth(float width) {
 	m_Width = width;
 }
 
-float GameObjectBlueprint::getHeight()
-{
+float GameObjectBlueprint::getHeight() {
 	return m_Height;
 }
-void GameObjectBlueprint::setHeight(float height)
-{
+
+void GameObjectBlueprint::setHeight(float height) {
 	m_Height = height;
 }
 
-float GameObjectBlueprint::getLocationX()
-{
+float GameObjectBlueprint::getLocationX() {
 	return m_LocationX;
 }
 
-void GameObjectBlueprint::setLocationX(float locationX)
-{
+void GameObjectBlueprint::setLocationX(float locationX) {
 	m_LocationX = locationX;
 }
 
-float GameObjectBlueprint::getLocationY()
-{
+float GameObjectBlueprint::getLocationY() {
 	return m_LocationY;
 }
 
-void GameObjectBlueprint::setLocationY(float locationY)
-{
+void GameObjectBlueprint::setLocationY(float locationY) {
 	m_LocationY = locationY;
 }
+
 
 void GameObjectBlueprint::setName(string name)
 {
@@ -69,18 +63,15 @@ void GameObjectBlueprint::setBitmapName(string bitmapName)
 	m_BitmapName = "" + bitmapName;
 }
 
-string GameObjectBlueprint::getEncompassingRectColliderLabel()
-{
+string GameObjectBlueprint::getEncompassingRectColliderLabel() {
 	return m_EncompassingRectColliderLabel;
 }
 
-bool GameObjectBlueprint::getEncompassingRectCollider()
-{
+bool GameObjectBlueprint::getEncompassingRectCollider() {
 	return m_EncompassingRectCollider;
 }
 
-void GameObjectBlueprint::setEncompassingRectCollider(string label)
-{
+void GameObjectBlueprint::setEncompassingRectCollider(string label) {
 	m_EncompassingRectCollider = true;
 	m_EncompassingRectColliderLabel = "" + label;
 }

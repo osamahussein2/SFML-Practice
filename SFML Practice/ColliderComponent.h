@@ -9,17 +9,21 @@ private:
 	bool m_Enabled = false;
 
 public:
+
 	/****************************************************
 	*****************************************************
 	From Component interface
 	*****************************************************
 	*****************************************************/
+
 	string Component::getType() {
 		return m_Type;
 	}
+
 	void Component::disableComponent() {
 		m_Enabled = false;
 	}
+
 	void Component::enableComponent() {
 		m_Enabled = true;
 	}
@@ -27,8 +31,8 @@ public:
 	bool Component::enabled() {
 		return m_Enabled;
 	}
-	void Component::start(GameObjectSharer* gos, GameObject* self)
-	{
+
+	void Component::start(GameObjectSharer* gos, GameObject* self) {
 
 	}
 };

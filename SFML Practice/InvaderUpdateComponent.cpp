@@ -25,8 +25,10 @@ void InvaderUpdateComponent::update(float fps)
 
 	// Is the middle of the invader above the
 	// player +- 1 world units
-	if ((m_TC->getLocation().x + (m_TC->getSize().x / 2)) > (m_PlayerTC->getLocation().x - m_AccuracyModifier) &&
-		(m_TC->getLocation().x + (m_TC->getSize().x / 2)) < (m_PlayerTC->getLocation().x + 
+	if ((m_TC->getLocation().x + (m_TC->getSize().x / 2)) >
+		(m_PlayerTC->getLocation().x - m_AccuracyModifier) &&
+		(m_TC->getLocation().x + (m_TC->getSize().x / 2)) <
+		(m_PlayerTC->getLocation().x +
 			(m_PlayerTC->getSize().x + m_AccuracyModifier)))
 	{
 		/* Inside the preceding if test, another test makes sure that the invader has waited long enough since the last shot
@@ -39,14 +41,16 @@ void InvaderUpdateComponent::update(float fps)
 		{
 			SoundEngine::playShoot();
 			Vector2f spawnLocation;
+			spawnLocation.x = m_TC->getLocation().x +
+				m_TC->getSize().x / 2;
 
-			spawnLocation.x = m_TC->getLocation().x + m_TC->getSize().x / 2;
-			spawnLocation.y = m_TC->getLocation().y + m_TC->getSize().y;
+			spawnLocation.y = m_TC->getLocation().y +
+				m_TC->getSize().y;
 
 			m_BulletSpawner->spawnBullet(spawnLocation, false);
-			
 			srand(m_RandSeed);
-			int mTimeBetweenShots = (((rand() % 10)) + 1) / WorldState::WAVE_NUMBER;
+			int mTimeBetweenShots = (((rand() % 10)) + 1) /
+				WorldState::WAVE_NUMBER;
 
 			m_TimeSinceLastShot = 0;
 		}

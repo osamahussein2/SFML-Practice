@@ -155,7 +155,8 @@
     <ClCompile Include="BlueprintObjectParser.cpp" />
     <ClCompile Include="Bob.cpp" />
     <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="BulletUpdate.cpp" />
+    <ClCompile Include="BulletSpawner.cpp" />
+    <ClCompile Include="BulletUpdateComponent.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ColliderComponent.cpp" />
     <ClCompile Include="Component.cpp" />
@@ -177,8 +178,9 @@
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="InputHandler.cpp" />
-    <ClCompile Include="InvaderUpdate.cpp" />
+    <ClCompile Include="InvaderUpdateComponent.cpp" />
     <ClCompile Include="LevelManager.cpp" />
+    <ClCompile Include="PhysicsEnginePlayMode.cpp" />
     <ClCompile Include="ZombieLevelManager.cpp" />
     <ClCompile Include="LoadLevel.cpp" />
     <ClCompile Include="ObjectTags.cpp" />
@@ -187,7 +189,7 @@
     <ClCompile Include="Pickup.cpp" />
     <ClCompile Include="PlayableCharacter.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="PlayerUpdate.cpp" />
+    <ClCompile Include="PlayerUpdateComponent.cpp" />
     <ClCompile Include="PlayModeObjectLoader.cpp" />
     <ClCompile Include="Pong.cpp" />
     <ClCompile Include="PopulateEmitters.cpp" />
@@ -221,6 +223,7 @@
     <ClInclude Include="BlueprintObjectParser.h" />
     <ClInclude Include="Bob.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="BulletSpawner.h" />
     <ClInclude Include="BulletUpdateComponent.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="ColliderComponent.h" />
@@ -242,6 +245,7 @@
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="InvaderUpdateComponent.h" />
     <ClInclude Include="LevelManager.h" />
+    <ClInclude Include="PhysicsEnginePlayMode.h" />
     <ClInclude Include="ZombieLevelManager.h" />
     <ClInclude Include="ObjectTags.h" />
     <ClInclude Include="Particle.h" />

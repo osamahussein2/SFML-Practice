@@ -48,7 +48,6 @@ void UIPanel::draw(RenderWindow& window)
 	if (!m_Hidden) 
 	{
 		window.draw(m_UIPanel);
-
 		for (auto it = m_Buttons.begin(); it != m_Buttons.end(); ++it)
 		{
 			(*it)->draw(window);

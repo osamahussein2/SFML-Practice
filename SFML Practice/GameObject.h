@@ -10,6 +10,7 @@
 class GameObject {
 private:
 	vector<shared_ptr<Component>> m_Components;
+
 	string m_Tag;
 	bool m_Active = false;
 	int m_NumberUpdateComponents = 0;
@@ -21,6 +22,8 @@ private:
 	int m_NumberRectColliderComponents = 0;
 	int m_FirstRectColliderComponentLocation = -1;
 	bool m_HasCollider = false;
+	bool m_HasStateComponent = false;
+	int m_StateComponentLocation = -1;
 
 public:
 	void update(float fps);

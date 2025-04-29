@@ -1,12 +1,12 @@
 #pragma once
-#include<vector>
-#include<string>
-#include<map>
+#include <vector>
+#include <string>
+#include <map>
 
 using namespace std;
 
-class GameObjectBlueprint 
-{
+class GameObjectBlueprint {
+
 private:
 	string m_Name = "";
 	vector<string> m_ComponentList;

@@ -12,16 +12,10 @@ class InvaderUpdateComponent : public UpdateComponent
 private:
 	string m_SpecificType = "invader";
 
-	/* There is a pointer to the transform component so that the invader can move, as well as a pointer to the collider
-	component so that it can update its location and be collided with */
 	shared_ptr<TransformComponent> m_TC;
-	shared_ptr<RectColliderComponent> m_RCC;
-
-	/* There are pointers to the player's transform and collider so that an invader can query the position of the player and
-	make decisions about when to shoot bullets */
-
-	shared_ptr<TransformComponent> m_PlayerTC;
-	shared_ptr<RectColliderComponent> m_PlayerRCC;
+	shared_ptr < RectColliderComponent> m_RCC;
+	shared_ptr < TransformComponent> m_PlayerTC;
+	shared_ptr < RectColliderComponent> m_PlayerRCC;
 
 	BulletSpawner* m_BulletSpawner;
 
@@ -36,19 +30,21 @@ private:
 public:
 	void dropDownAndReverse();
 	bool isMovingRight();
-	void initializeBulletSpawner(BulletSpawner* bulletSpawner, int randSeed);
+	void initializeBulletSpawner(BulletSpawner*
+		bulletSpawner, int randSeed);
 
 	/****************************************************
- *****************************************************
- From Component interface base class
- *****************************************************
- *****************************************************/
-	
+	*****************************************************
+	From Component interface base class
+	*****************************************************
+	*****************************************************/
+
 	string Component::getSpecificType() {
 		return m_SpecificType;
 	}
 
-	void Component::start(GameObjectSharer* gos, GameObject* self) {
+	void Component::start(GameObjectSharer* gos,
+		GameObject* self) {
 
 		// Where is the player?
 		m_PlayerTC = static_pointer_cast<TransformComponent>(
@@ -72,9 +68,10 @@ public:
 	}
 
 	/****************************************************
- *****************************************************
- From UpdateComponent
- *****************************************************
- *****************************************************/
+	*****************************************************
+	From UpdateComponent
+	*****************************************************
+	*****************************************************/
+
 	void update(float fps) override;
 };

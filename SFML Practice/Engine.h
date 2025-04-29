@@ -3,7 +3,7 @@
 #include "TextureHolder.h"
 #include "Thomas.h"
 #include "Bob.h"
-#include "LevelManager.h"
+#include "ZombieLevelManager.h"
 #include "SoundManager.h"
 #include "HUD.h"
 #include "ParticleSystem.h"
@@ -23,7 +23,7 @@ private:
 	Bob m_Bob;
 
 	// A class to manage all the levels
-	LevelManager m_LM;
+	ZombieLevelManager m_LM;
 
 	// Create a SoundManager
 	SoundManager m_SM;
